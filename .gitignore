@@ -1,0 +1,3 @@
+# Visual Studio 2015 modules
+.vs/
+!.vs/config/applicationhost.config
