@@ -1,5 +1,5 @@
-# One-time Payment (OTP) Sharepoint Simulator
-This is a small file-based HTML site meant to simulate the Sharepoint portal experience for the One-time Payment 
+# One-Time Payment (OTP) Sharepoint Emulator
+This is a small file-based HTML site meant to emulate the Sharepoint portal experience for the One-Time Payment 
 application.
 
 ## Usage
@@ -12,12 +12,12 @@ their own development space.
 ### Installation
 In order to access the other components this project desires to have the following project location structure:
 ```
-workspace
-	|_ BTRJavaScript
-	|_ SiteAssets
-	  |_ BTR
-	    |_ js (symlink to BTRJavaScript)
-	|_ TC_OTP
+|_workspace
+  |_ BTRJavaScript
+  |_ SiteAssets
+    |_ BTR
+      |_ js (symlink to BTRJavaScript)
+  |_ TC_OTP
 
 // For clairity, `workspace` simply refers to some directory within which the repositories have been cloned.
 ```
