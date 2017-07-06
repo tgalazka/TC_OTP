@@ -932,7 +932,7 @@ function addRowToTable(tableIdentifier,makeRow,rowIndex)
 	// Remove hard coding
 	// var _gUser_LoginName = _spPageContextInfo.userLoginName;
 	var _gUser_LoginName = 'kcooper';
-	var _gUser_User_uni_code = BTRUtils.GetUniValue(_gUser_LoginName); 
+	var _gUser_User_uni_code = BTRUtils.ParseUniValue(_gUser_LoginName); 
 	var _gUser_UserDept = null; //TODO: Fix this 
 
 	//Form Variables
