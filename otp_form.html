@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,31 +13,34 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="js/nextStep.js"></script>
-<!--  <script src="js/addRows.js"></script> -->
-  <script src="./js/Utils.js" type="text/javascript"></script>
-  <script src="./js/SP.User.js" type="text/javascript"></script>
-  <script src="./js/Banner.Employee.js" type="text/javascript"></script>
-  <script src="./js/LookupValues.js" type="text/javascript"></script>
-  <script src="./js/Index.js" type="text/javascript"></script>
-  <script src="./js/Account.js" type="text/javascript"></script>
-  <script src="./js/btredit.js" type="text/javascript"></script>
-  <script src="./js/otp_form.js" type="text/javascript"></script>
-  <script src="./js/BudgetTransfer.js" type="text/javascript"></script>
-  <script src="./js/TransferActivity.js" type="text/javascript"></script>
+  <!--  <script src="js/addRows.js"></script> -->
+  <!-- Reference the BTR Javascript objects directly. -->
+  <script src="../BTRJavaScript/Utils.js" type="text/javascript"></script>
+  <script src="../BTRJavaScript/SP.User.js" type="text/javascript"></script>
+  <script src="../BTRJavaScript/Banner.Employee.js" type="text/javascript"></script>
+  <script src="../BTRJavaScript/LookupValues.js" type="text/javascript"></script>
+  <script src="../BTRJavaScript/Index.js" type="text/javascript"></script>
+  <script src="../BTRJavaScript/Account.js" type="text/javascript"></script>
+  <script src="../BTRJavaScript/btredit.js" type="text/javascript"></script>
+  <script src="../BTRJavaScript/otp_form.js" type="text/javascript"></script>
+  <script src="../BTRJavaScript/BudgetTransfer.js" type="text/javascript"></script>
+  <script src="../BTRJavaScript/TransferActivity.js" type="text/javascript"></script>
 
 </head>
-<header>
-  <div class="container-fluid" id="top-nav">
-    <div class="row">
-      <div class="col-lg-12 col-md-10 col-sm-12 col-xs-12">
-        <img src="static/logo.png" class="img-responsive">
-      </div>
-    </div>
-  </div>
-</header>
-<!-- up until this point, the header takes the width of the page and looks 'normal' -->
+
 
 <body>
+  <header>
+    <div class="container-fluid" id="top-nav">
+      <div class="row">
+        <div class="col-lg-12 col-md-10 col-sm-12 col-xs-12">
+          <img src="static/logo.png" class="img-responsive">
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- up until this point, the header takes the width of the page and looks 'normal' -->
+
   <nav id="nav-bar" class="navigation navbar navbar-default list-inline" role="navigation">
     <!-- Creates the hamburgererererer -->
     <div class="navbar-header">
@@ -49,8 +52,12 @@
       </button>
     </div>
     <ul class="nav navbar-nav list-inline collapse navbar-collapse hamburger">
-      <li><a href="https://teacherscollegecolumbia.sharepoint.com/tccu/btadev/Pages/BTR.aspx"><span class="glyphicon glyphicon-home">
-    </span></a></li>
+      <li>
+        <a href="https://teacherscollegecolumbia.sharepoint.com/tccu/btadev/Pages/BTR.aspx">
+          <span class="glyphicon glyphicon-home">
+          </span>
+        </a>
+      </li>
       <li class="btn-group">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">OTP<span class="caret"></span></a>
       </li>
@@ -69,103 +76,99 @@
   <main>
     <div class="container" name="step-preview-container">
       <!-- row is for column sizing -->
-    <form class="container" id="form1">
-      <div class="form1 row setup-content">
-        <div class="col-md-12 well text-center">
-          <div class="container col-xs-12">
-            <div class="row clearfix">
-              <!-- below keeps the "next" button in the same well -->
-              <div class="col-md-12 column">
-                <table class="table table-bordered table-hover">
-                  <!-- thread groups elements together -->
-                  <thread>
-                    <tr>
-                      <th class="text-center">
-                        Employee
-                      </th>
-                      <th class="text-center">
-							Index/Account
-                      </th>
-                    </tr>
-                  </thread>
-                  <tbody>
-                    <td>
-						Lookup <input type="text" class="form-control" type="text" name="employeeUni" id="txtEmployeeUni" onchange="LookupEmployee(this);">
-						<input type="text" class="form-control" type="text" name="employeeUni" id="txtEmployeeName" disabled value="No Employee">
-                    </td>
-                    <td>
-					<select type="text" name="from-index" class="form-control" id="toTAIndex_F1" onchange="LookupAccount(this);">
-					  <option value="" disabled selected>Select the Index</option>
-					</select>
-					<br/>
-					<select class="form-control" type="text" name="from-account"  id="toTAAccount_F1">
-					  <option value="" disabled selected>Select the Account</option>
-					</select>
-						
-                    </td>
-                  </tbody>
-                </table>
+      <form class="container" id="form1">
+        <div class="form1 row setup-content">
+          <div class="col-md-12 well text-center">
+            <div class="container col-xs-12">
+              <div class="row clearfix">
+                <!-- below keeps the "next" button in the same well -->
+                <div class="col-md-12 column">
+                  <table class="table table-bordered table-hover">
+                    <!-- thead groups elements together -->
+                    <thead>
+                      <tr>
+                        <th class="text-center">
+                          Employee
+                        </th>
+                        <th class="text-center">
+                          Index/Account
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Lookup <input type="text" class="form-control" type="text" name="employeeUni" id="txtEmployeeUni" onchange="LookupEmployee(this);">
+                          <input class="form-control" type="text" name="employeeUni" id="txtEmployeeName" disabled value="No Employee">
+                        </td>
+                        <td>
+                          <select type="text" name="from-index" class="form-control" id="toTAIndex_F1" onchange="LookupAccount(this);">
+                            <option value="" disabled selected>Select the Index</option>
+                          </select>
+                          <br />
+                          <select class="form-control" type="text" name="from-account" id="toTAAccount_F1">
+                            <option value="" disabled selected>Select the Account</option>
+                          </select>
+
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </main>
-<script language="javascript">
-function LookupEmployee(objField)
-{
-	var x = objField;
-	Banner.Employee.SiteUrl('https://btrservices.azurewebsites.net');
-	Banner.Employee.AuthorizationToken('asfsadfasfdasfsfsaf');
-	Banner.Employee.ByUni(objField.value,
-		function(data) {
-			debugger;
-			if (data == null)
-			{
-				//just for testing
-				$('#txtEmployeeName').value("No user found");
-				return;
-			}
-			$('#txtEmployeeName').val(data.last_name + ', '+data.first_name + ' (' + data.position_number +')');
-		},
-		function(error) {
-		debugger;
-			alert('Error getting data:'+error.Message);
-		}
-	);
-}
+  <script language="javascript">
+    function LookupEmployee(objField) {
+      var x = objField;
+      Banner.Employee.SiteUrl('https://btrservices.azurewebsites.net');
+      Banner.Employee.AuthorizationToken('asfsadfasfdasfsfsaf');
+      Banner.Employee.ByUni(objField.value,
+        function (data) {
+          debugger;
+          if (data == null) {
+            //just for testing
+            $('#txtEmployeeName').value("No user found");
+            return;
+          }
+          $('#txtEmployeeName').val(data.last_name + ', ' + data.first_name + ' (' + data.position_number + ')');
+        },
+        function (error) {
+          debugger;
+          alert('Error getting data:' + error.Message);
+        }
+      );
+    }
 
-function LookupAccount(objField)
-{
-	var index_key = objField.value;
-	BTR.Account.GetAccountsByIndexKey(index_key,	
-		function (data) {
-			var _select = new Array();
-			
-			_select.push('<option value="-1">Select Account</option>');
-			$.each(data, function(index,obj) {
-				_select.push('<option value="'+obj.account_key+'">'+obj.account_number_description+'</option>');
-			});
-			//if this is on the From side then clear balance
-			
-			//clear accounts and repopulate
-			$('#toTAAccount_F1').empty().append(_select.join());			
-			//debugger;
-			if ((typeof selectedValue ) != 'undefined')
-			{
-				$('#toTAAccount_F1').val(selectedValue);
-			}
-		  },
-		function (data) {
-			  alert("Error(LookupAccount): "+ data.Message);
-	 }
-	);
-}
+    function LookupAccount(objField) {
+      var index_key = objField.value;
+      BTR.Account.GetAccountsByIndexKey(index_key,
+        function (data) {
+          var _select = new Array();
 
+          _select.push('<option value="-1">Select Account</option>');
+          $.each(data, function (index, obj) {
+            _select.push('<option value="' + obj.account_key + '">' + obj.account_number_description + '</option>');
+          });
+          //if this is on the From side then clear balance
 
+          //clear accounts and repopulate
+          $('#toTAAccount_F1').empty().append(_select.join());
+          //debugger;
+          if ((typeof selectedValue) != 'undefined') {
+            $('#toTAAccount_F1').val(selectedValue);
+          }
+        },
+        function (data) {
+          alert("Error(LookupAccount): " + data.Message);
+        }
+      );
+    }
+  </script>
 
-
-</script>
-
+</body>
 </html>
