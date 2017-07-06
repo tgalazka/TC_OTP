@@ -15,8 +15,8 @@ In order to access the other components this project desires to have the followi
 workspace
 	|_ BTRJavaScript
 	|_ SiteAssets
-		|_ BTR
-			|_ js (symlink to BTRJavaScript)
+	  |_ BTR
+	    |_ js (symlink to BTRJavaScript)
 	|_ TC_OTP
 
 // For clairity, `workspace` simply refers to some directory within which the repositories have been cloned.
